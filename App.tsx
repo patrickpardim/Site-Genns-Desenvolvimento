@@ -11,16 +11,17 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfUse from './components/TermsOfUse';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'home' | 'privacy'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'privacy' | 'terms'>('home');
 
   return (
     <div className="min-h-screen font-sans bg-brand-dark selection:bg-brand-primary selection:text-white flex flex-col">
       <Header currentView={currentView} onViewChange={setCurrentView} />
       
       <main className="flex-grow">
-        {currentView === 'home' ? (
+        {currentView === 'home' && (
           <>
             <Hero />
             <About />
@@ -32,9 +33,9 @@ const App: React.FC = () => {
             <FAQ />
             <Contact />
           </>
-        ) : (
-          <PrivacyPolicy />
         )}
+        {currentView === 'privacy' && <PrivacyPolicy />}
+        {currentView === 'terms' && <TermsOfUse />}
       </main>
 
       <Footer onViewChange={setCurrentView} />

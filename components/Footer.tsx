@@ -4,7 +4,7 @@ import { CONTACT_INFO } from '../constants';
 import { Instagram, Globe, Mail, Phone } from 'lucide-react';
 
 interface FooterProps {
-  onViewChange: (view: 'home' | 'privacy') => void;
+  onViewChange: (view: 'home' | 'privacy' | 'terms') => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
@@ -27,6 +27,11 @@ const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
   const handlePrivacyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     onViewChange('privacy');
+  };
+
+  const handleTermsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onViewChange('terms');
   };
 
   return (
@@ -119,7 +124,15 @@ const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
           <div>
             <h4 className="font-bold uppercase tracking-widest mb-6 text-brand-primary">Legal</h4>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#" className="text-sm hover:text-white transition-colors block">Termos de Uso</a></li>
+              <li>
+                <a 
+                    href="#" 
+                    onClick={handleTermsClick}
+                    className="text-sm hover:text-white transition-colors block cursor-pointer"
+                >
+                    Termos de Uso
+                </a>
+              </li>
               <li>
                 <a 
                   href="#" 

@@ -3,8 +3,8 @@ import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 
 interface HeaderProps {
-  currentView: 'home' | 'privacy';
-  onViewChange: (view: 'home' | 'privacy') => void;
+  currentView: 'home' | 'privacy' | 'terms';
+  onViewChange: (view: 'home' | 'privacy' | 'terms') => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ currentView, onViewChange }) => {
